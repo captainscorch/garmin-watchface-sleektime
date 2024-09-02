@@ -15,6 +15,15 @@ module Color {
   const MAX_COLOR_ID as Number = 8;
 
   const _COLORS as Array<Number> = [
+    /* VENUS */
+    Graphics.COLOR_WHITE, // TEXT_ACTIVE
+    Graphics.COLOR_LT_GRAY, // TEXT_INACTIVE
+    Graphics.COLOR_YELLOW, // PRIMARY
+    0xe7e2de, // SECONDARY_1
+    Graphics.COLOR_RED, // SECONDARY_2
+    Graphics.COLOR_BLACK, // BACKGROUND
+    Graphics.COLOR_WHITE, // FOREGROUND
+    Graphics.COLOR_DK_GRAY, // INACTIVE,
     /* EXPANSE */
     Graphics.COLOR_WHITE, // TEXT_ACTIVE
     Graphics.COLOR_LT_GRAY, // TEXT_INACTIVE
@@ -42,33 +51,6 @@ module Color {
     Graphics.COLOR_BLACK, // BACKGROUND
     Graphics.COLOR_WHITE, // FOREGROUND
     Graphics.COLOR_DK_GRAY, // INACTIVE
-    /* BELT */
-    Graphics.COLOR_WHITE, // TEXT_ACTIVE
-    Graphics.COLOR_LT_GRAY, // TEXT_INACTIVE
-    Graphics.COLOR_YELLOW, // PRIMARY
-    0xffff00, // SECONDARY_1
-    0xffff00, // SECONDARY_2
-    Graphics.COLOR_BLACK, // BACKGROUND
-    Graphics.COLOR_WHITE, // FOREGROUND
-    Graphics.COLOR_DK_GRAY, // INACTIVE
-    /* EXPANSE (Light) */
-    Graphics.COLOR_BLACK, // TEXT_ACTIVE
-    Graphics.COLOR_DK_GRAY, // TEXT_INACTIVE
-    Graphics.COLOR_YELLOW, // PRIMARY
-    Graphics.COLOR_BLUE, // SECONDARY_1
-    Graphics.COLOR_BLUE, // SECONDARY_2
-    Graphics.COLOR_WHITE, // BACKGROUND
-    Graphics.COLOR_BLACK, // FOREGROUND
-    Graphics.COLOR_LT_GRAY, // INACTIVE
-    /* EARTH (Light) */
-    Graphics.COLOR_BLACK, // TEXT_ACTIVE
-    Graphics.COLOR_DK_GRAY, // TEXT_INACTIVE
-    Graphics.COLOR_DK_BLUE, // PRIMARY
-    Graphics.COLOR_BLUE, // SECONDARY_1
-    Graphics.COLOR_BLUE, // SECONDARY_2
-    Graphics.COLOR_WHITE, // BACKGROUND
-    Graphics.COLOR_BLACK, // FOREGROUND
-    Graphics.COLOR_LT_GRAY, // INACTIVE
   ];
 }
 

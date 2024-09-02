@@ -194,7 +194,7 @@ var _theme as Null or Array<ResourceId> = null;
 
 function getThemeString(themeId) {
   if (_theme == null) {
-    _theme = [Rez.Strings.ThemeExpanse, Rez.Strings.ThemeEarth, Rez.Strings.ThemeMars, Rez.Strings.ThemeBelt];
+    _theme = [Rez.Strings.ThemeVenus, Rez.Strings.ThemeExpanse, Rez.Strings.ThemeEarth, Rez.Strings.ThemeMars];
   }
   return Settings.resource(_theme[themeId]);
 }

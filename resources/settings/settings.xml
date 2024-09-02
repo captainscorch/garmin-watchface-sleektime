@@ -8,10 +8,10 @@
 
   <setting propertyKey="@Properties.theme" title="@Strings.SettingsThemeTitle">
     <settingConfig type="list">
-      <listEntry value="0">@Strings.ThemeExpanse</listEntry>
-      <listEntry value="1">@Strings.ThemeEarth</listEntry>
-      <listEntry value="2">@Strings.ThemeMars</listEntry>
-      <listEntry value="3">@Strings.ThemeBelt</listEntry>
+      <listEntry value="0">@Strings.ThemeVenus</listEntry>
+      <listEntry value="1">@Strings.ThemeExpanse</listEntry>
+      <listEntry value="2">@Strings.ThemeEarth</listEntry>
+      <listEntry value="3">@Strings.ThemeMars</listEntry>
     </settingConfig>
   </setting>
 
