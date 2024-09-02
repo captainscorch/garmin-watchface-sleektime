@@ -3,7 +3,7 @@ import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.System;
 
-class ProtomoleculeFaceView extends WatchUi.WatchFace {
+class SleekTimeView extends WatchUi.WatchFace {
   var mBurnInProtectionMode = false;
   var mLastUpdateBIPMode = false;
   var mLastUpdateSleepTime = false;

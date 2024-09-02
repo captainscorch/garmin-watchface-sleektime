@@ -9,7 +9,7 @@ import Toybox.UserProfile;
 import Toybox.WatchUi;
 
 (:background)
-class ProtomoleculeFaceApp extends Application.AppBase {
+class SleekTimeApp extends Application.AppBase {
   function initialize() {
     AppBase.initialize();
   }
@@ -45,7 +45,7 @@ class ProtomoleculeFaceApp extends Application.AppBase {
   function getInitialView() {
     Settings.initSettings();
     initBackground();
-    return [new ProtomoleculeFaceView()];
+    return [new SleekTimeView()];
   }
 
   function getServiceDelegate() {
@@ -53,7 +53,7 @@ class ProtomoleculeFaceApp extends Application.AppBase {
   }
 
   function getSettingsView() {
-    return [new ProtomoleculeSettingsMenu(), new ProtomoleculeSettingsDelegate()];
+    return [new SleekTimeSettingsMenu(), new SleekTimeSettingsDelegate()];
   }
 
   // New app settings have been received so trigger a UI update

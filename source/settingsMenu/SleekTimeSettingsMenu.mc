@@ -5,7 +5,7 @@ import Toybox.Graphics;
 import Toybox.System;
 import Toybox.Lang;
 
-class ProtomoleculeSettingsMenu extends WatchUi.Menu2 {
+class SleekTimeSettingsMenu extends WatchUi.Menu2 {
   function initialize() {
     Menu2.initialize({ :title => Settings.resource(Rez.Strings.SettingsMenuLabel) });
 
@@ -49,7 +49,7 @@ class ProtomoleculeSettingsMenu extends WatchUi.Menu2 {
   }
 }
 
-class ProtomoleculeSettingsDelegate extends WatchUi.Menu2InputDelegate {
+class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
   function initialize() {
     Menu2InputDelegate.initialize();
   }
@@ -160,7 +160,7 @@ class ProtomoleculeSettingsDelegate extends WatchUi.Menu2InputDelegate {
     menu.addItem(menuItem("middle2", Settings.resource(Rez.Strings.SettingsSecondary2Title), getDataFieldString(Settings.get("middle2"))));
     menu.addItem(menuItem("middle3", Settings.resource(Rez.Strings.SettingsSecondary3Title), getDataFieldString(Settings.get("middle3"))));
 
-    WatchUi.pushView(menu, new ProtomoleculeSettingsDelegate(), WatchUi.SLIDE_LEFT);
+    WatchUi.pushView(menu, new SleekTimeSettingsDelegate(), WatchUi.SLIDE_LEFT);
   }
 
   hidden function pushCirclesSubMenu() {
@@ -174,7 +174,7 @@ class ProtomoleculeSettingsDelegate extends WatchUi.Menu2InputDelegate {
     menu.addItem(menuItem("middle2", Settings.resource(Rez.Strings.SettingsSecondary2Title), getDataFieldString(Settings.get("middle2"))));
     menu.addItem(menuItem("middle3", Settings.resource(Rez.Strings.SettingsSecondary3Title), getDataFieldString(Settings.get("middle3"))));
 
-    WatchUi.pushView(menu, new ProtomoleculeSettingsDelegate(), WatchUi.SLIDE_LEFT);
+    WatchUi.pushView(menu, new SleekTimeSettingsDelegate(), WatchUi.SLIDE_LEFT);
   }
 
   function onBack() {
