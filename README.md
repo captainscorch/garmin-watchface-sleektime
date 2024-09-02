@@ -28,3 +28,4 @@ Can now be found in the Garmin store: https://apps.garmin.com/en-US/apps/d9f524c
 
 - Uses a slightly modified Version of the [DINish Font](https://github.com/playbeing/dinish) for the date and time elements.
 - Various icons used from and inspired by [The Noun Project](https://thenounproject.com/).
+- This project has been forked from [Protomolecule](https://github.com/blotspot/garmin-watchface-protomolecule).
