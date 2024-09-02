@@ -1,0 +1,113 @@
+<strings>
+  <string id="AppName">Protomolecule WatchFace</string>
+
+  <string id="LayoutOrbit">Orbit (6 Datenfelder)</string>
+  <string id="LayoutOrbitItem">Orbit</string>
+  <string id="LayoutOrbitItemSub">6 Datenfelder</string>
+  <string id="LayoutCircles">Kreise (8 Datenfelder)</string>
+  <string id="LayoutCirclesItem">Kreise</string>
+  <string id="LayoutCirclesItemSub">8 Datenfelder</string>
+
+  <string id="ThemeExpanse">Expanse</string>
+  <string id="ThemeEarth">UN</string>
+  <string id="ThemeMars">MCR</string>
+  <string id="ThemeBelt">Belt</string>
+  <string id="ThemeExpanseLight">Expanse (Hell)</string>
+  <string id="ThemeEarthLight">UN (Hell)</string>
+
+  <string id="GenericSettingsGroupTitle">Allgemeine Einstellungen</string>
+  <string id="SettingsLayoutTitle">Layout</string>
+  <string id="SettingsChooseLayoutTitle">Wähle Layout</string>
+  <string id="SettingsThemeTitle">Design</string>
+  <string id="SettingsChooseThemeTitle">Wähle Design</string>
+  <string id="SettingsShowSecondsTitle">Zeige Sekunden</string>
+  <string id="SettingsShowMeridiemTitle">Zeige AM / PM bei 12-Stunden Zeit</string>
+  <string id="SettingsShowRemainingIndicator">Zeige den verbleibenden Teil des Indikators</string>
+  <string id="SettingsCaloriesGoalTitle">Tägliches Kalorienziel</string>
+  <string id="SettingsBatteryThresholdTitle">'Batterie leer' Icon bei %</string>
+  <string id="SettingsSleepTimeLayoutActiveTitle">Fixes Layout während des Schlafzeitraums</string>
+  <string id="SettingsActiveHeartrateTitle">Herzfrequenz öfter aktualisieren</string>
+  <string id="SettingsUseSystemFontTitle">Nutze Systemfont für Datumszeile</string>
+  
+  <string id="SettingsMenuLabel">Einstellungen</string>
+  <string id="ToggleMenuShowIndicatorTextLabel">Indikator Info</string>
+  <string id="ToggleMenuShowIndicatorTextEnabled">Icon und Text</string>
+  <string id="ToggleMenuShowIndicatorTextDisabled">Nur Icon</string>
+  <string id="ToggleMenuSystemFontLabel">Datumsfont</string>
+  <string id="ToggleMenuSystemFontEnabled">System</string>
+  <string id="ToggleMenuSystemFontDisabled">WatchFace</string>
+  <string id="ToggleMenuActiveHeartrateLabel">HF aktualisieren</string>
+  <string id="ToggleMenuActiveHeartrateEnabled">10 Sek</string>
+  <string id="ToggleMenuActiveHeartrateDisabled">1 Min</string>
+  <string id="ToggleMenuRemainingArcLabel">Indikator</string>
+  <string id="ToggleMenuRemainingArcEnabled">Komplett</string>
+  <string id="ToggleMenuRemainingArcDisabled">Nur fertigen Teil</string>
+  <string id="ToggleMenuShowAmPmLabel">Zeige AM / PM</string>
+  <string id="ToggleMenuSleepTimeLayoutLabel">Nacht Layout</string>
+  <string id="ToggleMenuEnabled">An</string>
+  <string id="ToggleMenuDisabled">Aus</string>
+
+  <string id="SettingsLayoutSettingsTitle">Layout Einstellungen</string>
+  <string id="SettingsOrbitLayoutGroupTitle">Orbit Layout Einstellungen</string>
+  <string id="SettingsOrbitIndicatorTextTitle">Zeige Text bei den pimären Indikatoren</string>
+  <string id="SettingsOuterOrbitTitle">[Orbit] Äußeres Datenfeld</string>
+  <string id="SettingsLeftOrbitTitle">[Orbit] Linkes Datenfeld</string>
+  <string id="SettingsRightOrbitTitle">[Orbit] Rechtes Datenfeld</string>
+
+  <string id="ODSettingsOuterOrbitTitle">Äußeres Datenfeld</string>
+  <string id="ODSettingsLeftOrbitTitle">Linkes Datenfeld</string>
+  <string id="ODSettingsRightOrbitTitle">Rechtes Datenfeld</string>
+
+  <string id="SettingsCirclesLayoutGroupTitle">Kreise Datenfeld Einstellungen</string>
+  <string id="SettingsOuterTitle">[Kreise] DF außen</string>
+  <string id="SettingsUpper1Title">[Kreise] DF oben links</string>
+  <string id="SettingsUpper2Title">[Kreise] DF oben rechts</string>
+  <string id="SettingsLower1Title">[Kreise] DF unten links</string>
+  <string id="SettingsLower2Title">[Kreise] DF unten rechts</string>
+  
+  <string id="ODSettingsOuterTitle">DF außen</string>
+  <string id="ODSettingsUpper1Title">DF oben links</string>
+  <string id="ODSettingsUpper2Title">DF oben rechts</string>
+  <string id="ODSettingsLower1Title">DF unten links</string>
+  <string id="ODSettingsLower2Title">DF unten rechts</string>
+  
+  <string id="SettingsSecondary1Title">DF Uhr links</string>
+  <string id="SettingsSecondary2Title">DF Uhr mitte</string>
+  <string id="SettingsSecondary3Title">DF Uhr rechts</string>
+  
+  <string id="NoDataField">Leer</string>
+  <string id="DataFieldSteps">Tägliche Schritte</string>
+  <string id="DataFieldBattery">Batteriestand</string>
+  <string id="DataFieldCalories">Kalorien</string>
+  <string id="DataFieldActiveMinutes">Aktive Minuten</string>
+  <string id="DataFieldHeartRate">Herzfrequenz</string>
+  <string id="DataFieldMessages">Benachrichtigungen</string>
+  <string id="DataFieldFloorsUp">Stockwerke hoch</string>
+  <string id="DataFieldFloorsDown">Stockwerke runter</string>
+  <string id="DataFieldBluetooth">Bluetooth</string>
+  <string id="DataFieldAlarms">Wecker</string>
+  <string id="DataFieldSeconds">Sekunden</string>
+  <string id="DataFieldBodyBattery">Körperbatterie</string>
+  <string id="DataFieldStressLevel">Stresslevel</string>
+
+  <string id="DateMonth1">Jan</string>
+  <string id="DateMonth2">Feb</string>
+  <string id="DateMonth3">Mar</string>
+  <string id="DateMonth4">Apr</string>
+  <string id="DateMonth5">Mai</string>
+  <string id="DateMonth6">Jun</string>
+  <string id="DateMonth7">Jul</string>
+  <string id="DateMonth8">Aug</string>
+  <string id="DateMonth9">Sept</string>
+  <string id="DateMonth10">Okt</string>
+  <string id="DateMonth11">Nov</string>
+  <string id="DateMonth12">Dez</string>
+
+  <string id="DateWeek1">So</string>
+  <string id="DateWeek2">Mo</string>
+  <string id="DateWeek3">Di</string>
+  <string id="DateWeek4">Mi</string>
+  <string id="DateWeek5">Do</string>
+  <string id="DateWeek6">Fr</string>
+  <string id="DateWeek7">Sa</string>
+</strings>

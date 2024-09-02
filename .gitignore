@@ -1,0 +1,6 @@
+.project
+/.idea
+/bin
+*.iml
+*.code-workspace
+.vscode
