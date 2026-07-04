@@ -59,6 +59,8 @@ module FieldType {
   const ACTIVE_CALORIES = 14;
   const TEMPERATURE = 15;
   const SUNRISE_SUNSET = 16;
+  const MOON_PHASE = 17;
+  const SECOND_TIME = 18;
 }
 
 module DataFieldInfo {
@@ -148,6 +150,10 @@ module DataFieldInfo {
       return getTemperatureInfo();
     } else if (fieldType == FieldType.SUNRISE_SUNSET) {
       return getSunEventInfo();
+    } else if (fieldType == FieldType.MOON_PHASE) {
+      return getMoonPhaseInfo();
+    } else if (fieldType == FieldType.SECOND_TIME) {
+      return getSecondTimeInfo();
     } else {
       return null;
     }
@@ -304,6 +310,54 @@ module DataFieldInfo {
     }
 
     return new DataFieldProperties(FieldType.SUNRISE_SUNSET, icon, text, 0, false);
+  }
+
+  //! Moon phase from a known new moon (2000-01-06 18:14 UTC), using the mean
+  //! synodic month. No API or permission needed. Text is the illuminated
+  //! percentage; the icon is one of eight phase silhouettes.
+  function getMoonPhaseInfo() as DataFieldProperties {
+    var synodic = 2551442.9d; // seconds in a synodic month (29.530589 days)
+    var knownNewMoon = 947182440; // epoch seconds of 2000-01-06 18:14 UTC
+    // manual float modulo (Monkey C '%' is integer-only)
+    var elapsed = (Time.now().value() - knownNewMoon).toDouble();
+    var age = elapsed - synodic * Math.floor(elapsed / synodic);
+    var phase = age / synodic; // 0.0 (new) .. 1.0 (next new)
+    var illumination = (1 - Math.cos(2 * Math.PI * phase)) / 2.0;
+
+    var phaseIcons = [
+      :drawMoonNew,
+      :drawMoonWaxingCrescent,
+      :drawMoonFirstQuarter,
+      :drawMoonWaxingGibbous,
+      :drawMoonFull,
+      :drawMoonWaningGibbous,
+      :drawMoonLastQuarter,
+      :drawMoonWaningCrescent,
+    ];
+    var index = (Math.round(phase * 8).toNumber()) % 8;
+    var icon = new Lang.Method(DataFieldIcons, phaseIcons[index]);
+
+    return new DataFieldProperties(FieldType.MOON_PHASE, icon, Math.round(illumination * 100).format(Format.INT), 0, false);
+  }
+
+  //! Time in a second time zone, offset from UTC by a whole number of hours.
+  function getSecondTimeInfo() as DataFieldProperties {
+    var offsetHours = Settings.get("secondTimeOffset");
+    var utc = Gregorian.utcInfo(Time.now(), Time.FORMAT_SHORT);
+    var totalMin = utc.hour * 60 + utc.min + offsetHours * 60;
+    totalMin = ((totalMin % 1440) + 1440) % 1440;
+
+    var hour = totalMin / 60;
+    var min = totalMin % 60;
+    if (!System.getDeviceSettings().is24Hour) {
+      hour = hour % 12;
+      if (hour == 0) {
+        hour = 12;
+      }
+    }
+
+    var text = Lang.format("$1$:$2$", [hour.format(Format.INT), min.format(Format.INT_ZERO)]);
+    return new DataFieldProperties(FieldType.SECOND_TIME, new Lang.Method(DataFieldIcons, :drawSecondTime), text, 0, false);
   }
 
   function getStepInfo() as DataFieldProperties {

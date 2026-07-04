@@ -53,7 +53,19 @@ class SecondaryDataField extends DataFieldDrawable {
   }
 
   function getDimensions(dc) as Array<Number> {
-    var dim = dc.getTextDimensions("000", Settings.resource(Rez.Fonts.SecondaryIndicatorFont)) as Array<Number>;
+    var font = Settings.resource(Rez.Fonts.SecondaryIndicatorFont);
+    // "000" is the minimum; time strings (e.g. "12:49") are wider and must not
+    // be clipped, so grow the region to the actual text when it is larger.
+    var dim = dc.getTextDimensions("000", font) as Array<Number>;
+    if (mLastInfo != null) {
+      var textDim = dc.getTextDimensions(mLastInfo.text, font) as Array<Number>;
+      if (textDim[0] > dim[0]) {
+        dim[0] = textDim[0];
+      }
+      if (textDim[1] > dim[1]) {
+        dim[1] = textDim[1];
+      }
+    }
     dim[0] = dim[0] + Settings.get("iconSize");
     if (dim[1] < Settings.get("iconSize")) {
       dim[1] = Settings.get("iconSize");
