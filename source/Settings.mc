@@ -111,6 +111,9 @@ module Settings {
       Rez.Strings.DataFieldBodyBattery,
       Rez.Strings.DataFieldSeconds,
       Rez.Strings.DataFieldStressLevel,
+      Rez.Strings.DataFieldActiveCalories,
+      Rez.Strings.DataFieldTemperature,
+      Rez.Strings.DataFieldSunriseSunset,
     ];
   }
 
@@ -141,6 +144,13 @@ module Settings {
     setAsBoolean("sleepLayoutActive", false);
     setAsBoolean("useSystemFontForDate", false);
     setAsBoolean("showSeconds", false);
+    setAsBoolean("batteryInDays", false);
+    setAsBoolean("sleepDimColors", false);
+
+    setAsNumber("sleepDataField1", 5);
+    setAsNumber("sleepDataField2", 6);
+    setAsNumber("sleepDataField3", 10);
+    setAsNumber("sleepOuterDataField", 2);
 
     _settings["middle1"] = Properties.getValue("noProgressDataField1");
     _settings["middle2"] = Properties.getValue("noProgressDataField2");
@@ -166,15 +176,19 @@ module Settings {
     current = new Time.Duration(current.hour * 3600 + current.min * 60);
 
     if (profile.wakeTime.lessThan(profile.sleepTime)) {
-      Settings.isSleepTime = get("sleepLayoutActive") && (current.greaterThan(profile.sleepTime) || current.lessThan(profile.wakeTime));
+      isSleepHours = current.greaterThan(profile.sleepTime) || current.lessThan(profile.wakeTime);
     } else if (profile.wakeTime.greaterThan(profile.sleepTime)) {
-      Settings.isSleepTime = get("sleepLayoutActive") && current.greaterThan(profile.sleepTime) && current.lessThan(profile.wakeTime);
+      isSleepHours = current.greaterThan(profile.sleepTime) && current.lessThan(profile.wakeTime);
     } else {
-      Settings.isSleepTime = false;
+      isSleepHours = false;
     }
+    isSleepTime = get("sleepLayoutActive") && isSleepHours;
   }
 
   var lowPowerMode = false;
+  // within the user profile's sleep window, regardless of layout settings
+  var isSleepHours = false;
+  // sleep window AND the sleep layout is enabled
   var isSleepTime = false;
 
   var _settings as Dictionary<String, Object> = {};

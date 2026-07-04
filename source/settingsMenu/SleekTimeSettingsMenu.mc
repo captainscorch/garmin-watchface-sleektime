@@ -35,12 +35,22 @@ class SleekTimeSettingsMenu extends WatchUi.Menu2 {
         Settings.resource(Rez.Strings.ToggleMenuDisabled)
       )
     );
+    Menu2.addItem(menuItem("sleepSettings", Settings.resource(Rez.Strings.SettingsSleepGroupTitle), null));
     Menu2.addItem(
       toggleItem(
         "useSystemFontForDate",
         Settings.resource(Rez.Strings.ToggleMenuSystemFontLabel),
         Settings.resource(Rez.Strings.ToggleMenuSystemFontEnabled),
         Settings.resource(Rez.Strings.ToggleMenuSystemFontDisabled)
+      )
+    );
+
+    Menu2.addItem(
+      toggleItem(
+        "batteryInDays",
+        Settings.resource(Rez.Strings.ToggleMenuBatteryInDaysLabel),
+        Settings.resource(Rez.Strings.ToggleMenuBatteryInDaysEnabled),
+        Settings.resource(Rez.Strings.ToggleMenuBatteryInDaysDisabled)
       )
     );
 
@@ -72,6 +82,18 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
     }
     if (item.getId().equals("theme")) {
       pushThemeOptionsMenu(item);
+      return;
+    }
+    if (item.getId().equals("sleepSettings")) {
+      pushSleepSubMenu();
+      return;
+    }
+    if ("sleepDataField1sleepDataField2sleepDataField3".find(item.getId().toString()) != null) {
+      pushClockDatafieldOptionsMenu(item);
+      return;
+    }
+    if (item.getId().equals("sleepOuterDataField")) {
+      pushOuterCirclesDatafieldOptionsMenu(item);
       return;
     }
     if ("middle1middle2middle3".find(item.getId().toString()) != null) {
@@ -114,7 +136,7 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
   }
 
   hidden function pushThemeOptionsMenu(parent) as Void {
-    var holder = new FixedValuesFactory([getThemeString(0), getThemeString(1), getThemeString(2), getThemeString(3)], parent.getId(), {});
+    var holder = new FixedValuesFactory([getThemeString(0), getThemeString(1), getThemeString(2), getThemeString(3), getThemeString(4)], parent.getId(), {});
     WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
   }
 
@@ -139,7 +161,7 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
   }
 
   hidden function pushClockDatafieldOptionsMenu(parent) {
-    var holder = new DataFieldFactory([0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 13], parent.getId(), {});
+    var holder = new DataFieldFactory([0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 16], parent.getId(), {});
     WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
   }
 
@@ -159,6 +181,19 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
     menu.addItem(menuItem("middle1", Settings.resource(Rez.Strings.SettingsSecondary1Title), getDataFieldString(Settings.get("middle1"))));
     menu.addItem(menuItem("middle2", Settings.resource(Rez.Strings.SettingsSecondary2Title), getDataFieldString(Settings.get("middle2"))));
     menu.addItem(menuItem("middle3", Settings.resource(Rez.Strings.SettingsSecondary3Title), getDataFieldString(Settings.get("middle3"))));
+
+    WatchUi.pushView(menu, new SleekTimeSettingsDelegate(), WatchUi.SLIDE_LEFT);
+  }
+
+  hidden function pushSleepSubMenu() {
+    var menu = new WatchUi.Menu2({ :title => Settings.resource(Rez.Strings.SettingsSleepGroupTitle) });
+    menu.addItem(
+      toggleItem("sleepDimColors", Settings.resource(Rez.Strings.ToggleMenuSleepDimLabel), Settings.resource(Rez.Strings.ToggleMenuEnabled), Settings.resource(Rez.Strings.ToggleMenuDisabled))
+    );
+    menu.addItem(menuItem("sleepOuterDataField", Settings.resource(Rez.Strings.ODSettingsOuterTitle), getDataFieldString(Settings.get("sleepOuterDataField"))));
+    menu.addItem(menuItem("sleepDataField1", Settings.resource(Rez.Strings.SettingsSecondary1Title), getDataFieldString(Settings.get("sleepDataField1"))));
+    menu.addItem(menuItem("sleepDataField2", Settings.resource(Rez.Strings.SettingsSecondary2Title), getDataFieldString(Settings.get("sleepDataField2"))));
+    menu.addItem(menuItem("sleepDataField3", Settings.resource(Rez.Strings.SettingsSecondary3Title), getDataFieldString(Settings.get("sleepDataField3"))));
 
     WatchUi.pushView(menu, new SleekTimeSettingsDelegate(), WatchUi.SLIDE_LEFT);
   }
@@ -194,7 +229,7 @@ var _theme as Null or Array<ResourceId> = null;
 
 function getThemeString(themeId) {
   if (_theme == null) {
-    _theme = [Rez.Strings.ThemeVenus, Rez.Strings.ThemeExpanse, Rez.Strings.ThemeEarth, Rez.Strings.ThemeMars];
+    _theme = [Rez.Strings.ThemeDaisy, Rez.Strings.ThemeRose, Rez.Strings.ThemeLavender, Rez.Strings.ThemeMarigold, Rez.Strings.ThemeBluebell];
   }
   return Settings.resource(_theme[themeId]);
 }
