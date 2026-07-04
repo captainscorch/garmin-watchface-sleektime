@@ -21,6 +21,9 @@ All themes use a black background with one soft accent color shared by the time,
 - **Lavender** - pastel purple
 - **Marigold** - pastel gold
 - **Bluebell** - pastel blue
+- **Custom** - your own accent color from a 12-color palette
+
+Colors can optionally dim during your sleep hours.
 
 ### Supported Data Fields
 
@@ -37,6 +40,8 @@ All themes use a black background with one soft accent color shared by the time,
 - Stress Level
 - Weather Temperature
 - Sunrise / Sunset
+- Moon Phase
+- Second Time Zone
 
 Developed by [unlimited.studio](https://unlimited.studio) & captainscor.ch.
 

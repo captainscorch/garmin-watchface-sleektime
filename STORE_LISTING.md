@@ -9,26 +9,28 @@ screenshots with the new themes (simulator: File → Save Screenshot).
 **SleekTime** — a clean, minimal watchface with soft pastel themes.
 
 Choose between two layouts: **Orbit** (three elegant arcs around the edge) and **Circles**
-(five delicate progress rings). Five color themes, each with one soft accent shared by the
-time and all indicators: Daisy (white), Rose (pink), Lavender (purple), Marigold (gold),
-and Bluebell (blue).
+(five delicate progress rings). Six themes, each a single soft accent shared by the time and
+all indicators: five pastel presets — Daisy (white), Rose (pink), Lavender (purple), Marigold
+(gold), Bluebell (blue) — plus a Custom theme with your own accent color from a 12-color palette.
 
-Data fields: heart rate, battery (percent or days remaining), steps, calories, active
-minutes, floors, notifications, alarms, Bluetooth, Body Battery, stress level, weather
-temperature, and sunrise/sunset. Every field slot is configurable from the watch or the
-Connect IQ app. An optional calm sleep layout activates during your configured sleep hours.
+Data fields: heart rate, battery (percent or days remaining), steps, calories, active minutes,
+floors, notifications, alarms, Bluetooth, Body Battery, stress level, weather temperature,
+sunrise/sunset, moon phase, and a second time zone. Every field slot is configurable from the
+watch or the Connect IQ app. An optional calm sleep layout activates during your configured
+sleep hours, with optional night dimming.
 
 ## German
 
 **SleekTime** — ein klares, minimalistisches Watchface mit sanften Pastell-Designs.
 
 Zwei Layouts zur Auswahl: **Orbit** (drei elegante Bögen am Rand) und **Kreise** (fünf
-feine Fortschrittsringe). Fünf Farbdesigns mit jeweils einer sanften Akzentfarbe für
-Uhrzeit und alle Anzeigen: Daisy (Weiß), Rose (Rosa), Lavendel (Lila), Ringelblume (Gold)
-und Glockenblume (Blau).
+feine Fortschrittsringe). Sechs Designs mit jeweils einer sanften Akzentfarbe für Uhrzeit und
+alle Anzeigen: fünf Pastell-Presets — Daisy (Weiß), Rose (Rosa), Lavendel (Lila), Ringelblume
+(Gold), Glockenblume (Blau) — plus ein eigenes Design mit frei wählbarer Akzentfarbe aus einer
+12-Farben-Palette.
 
 Datenfelder: Herzfrequenz, Batterie (Prozent oder verbleibende Tage), Schritte, Kalorien,
-aktive Minuten, Stockwerke, Benachrichtigungen, Wecker, Bluetooth, Body Battery,
-Stresslevel, Wetter-Temperatur und Sonnenauf-/untergang. Alle Felder sind direkt auf der
-Uhr oder über die Connect-IQ-App konfigurierbar. Optional aktiviert sich während der
-Schlafenszeit ein ruhiges Nacht-Layout.
+aktive Minuten, Stockwerke, Benachrichtigungen, Wecker, Bluetooth, Body Battery, Stresslevel,
+Wetter-Temperatur, Sonnenauf-/untergang, Mondphase und eine zweite Zeitzone. Alle Felder sind
+direkt auf der Uhr oder über die Connect-IQ-App konfigurierbar. Optional aktiviert sich während
+der Schlafenszeit ein ruhiges Nacht-Layout, das die Farben dimmen kann.
