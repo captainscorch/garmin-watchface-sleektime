@@ -63,11 +63,52 @@ module Color {
     0xa3c7ff, // FOREGROUND
     Graphics.COLOR_DK_GRAY, // INACTIVE
   ];
+
+  // Number of fixed themes in _COLORS; theme ids >= this select the Custom
+  // theme, whose accent comes from ACCENT_PALETTE[accentColor].
+  const FIXED_THEMES as Number = 5;
+
+  // Accent choices for the Custom theme (index stored in the accentColor
+  // setting). Order must match the accentColor list in the settings/strings.
+  const ACCENT_PALETTE as Array<Number> = [
+    Graphics.COLOR_WHITE, // White
+    0xff9ec8, // Pink
+    0xff8a8a, // Coral
+    0xffb482, // Peach
+    0xffd08a, // Gold
+    0x9ee8c0, // Mint
+    0x5ac8c8, // Teal
+    0xa3c7ff, // Sky
+    0x6aa0ff, // Blue
+    0xc9b3ff, // Lavender
+    0xb07aff, // Purple
+    0xff7ad0, // Magenta
+  ];
 }
 
 function themeColor(sectionId as Number) as Number {
   var theme = Settings.get("theme") as Number;
-  var color = Color._COLORS[theme * Color.MAX_COLOR_ID + sectionId];
+  var color;
+  if (theme >= Color.FIXED_THEMES) {
+    // Custom theme: black background, gray inactive tones, chosen accent
+    // everywhere else.
+    if (sectionId == Color.BACKGROUND) {
+      color = Graphics.COLOR_BLACK;
+    } else if (sectionId == Color.TEXT_INACTIVE) {
+      color = Graphics.COLOR_LT_GRAY;
+    } else if (sectionId == Color.INACTIVE) {
+      color = Graphics.COLOR_DK_GRAY;
+    } else {
+      var idx = Settings.get("accentColor") as Number;
+      if (idx < 0 || idx >= Color.ACCENT_PALETTE.size()) {
+        idx = 0;
+      }
+      color = Color.ACCENT_PALETTE[idx];
+    }
+  } else {
+    color = Color._COLORS[theme * Color.MAX_COLOR_ID + sectionId];
+  }
+
   if (sectionId != Color.BACKGROUND && Settings.isSleepHours && Settings.get("sleepDimColors")) {
     // night dimming: halve each RGB channel, keeping the hue
     return (color >> 1) & 0x7f7f7f;
