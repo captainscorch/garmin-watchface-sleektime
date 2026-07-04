@@ -13,7 +13,29 @@
       <listEntry value="2">@Strings.ThemeLavender</listEntry>
       <listEntry value="3">@Strings.ThemeMarigold</listEntry>
       <listEntry value="4">@Strings.ThemeBluebell</listEntry>
+      <listEntry value="5">@Strings.ThemeCustom</listEntry>
     </settingConfig>
+  </setting>
+
+  <setting propertyKey="@Properties.accentColor" title="@Strings.SettingsAccentColorTitle">
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.ColorWhite</listEntry>
+      <listEntry value="1">@Strings.ColorPink</listEntry>
+      <listEntry value="2">@Strings.ColorCoral</listEntry>
+      <listEntry value="3">@Strings.ColorPeach</listEntry>
+      <listEntry value="4">@Strings.ColorGold</listEntry>
+      <listEntry value="5">@Strings.ColorMint</listEntry>
+      <listEntry value="6">@Strings.ColorTeal</listEntry>
+      <listEntry value="7">@Strings.ColorSky</listEntry>
+      <listEntry value="8">@Strings.ColorBlue</listEntry>
+      <listEntry value="9">@Strings.ColorLavender</listEntry>
+      <listEntry value="10">@Strings.ColorPurple</listEntry>
+      <listEntry value="11">@Strings.ColorMagenta</listEntry>
+    </settingConfig>
+  </setting>
+
+  <setting propertyKey="@Properties.secondTimeOffset" title="@Strings.SettingsSecondTimeOffsetTitle">
+    <settingConfig type="numeric" min="-12" max="14" required="true"/>
   </setting>
 
   <setting propertyKey="@Properties.caloriesGoal" title="@Strings.SettingsCaloriesGoalTitle">
@@ -55,6 +77,8 @@
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
       <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
       <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+      <listEntry value="17">@Strings.DataFieldMoonPhase</listEntry>
+      <listEntry value="18">@Strings.DataFieldSecondTime</listEntry>
     </settingConfig>
   </setting>
 
@@ -73,6 +97,8 @@
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
       <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
       <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+      <listEntry value="17">@Strings.DataFieldMoonPhase</listEntry>
+      <listEntry value="18">@Strings.DataFieldSecondTime</listEntry>
     </settingConfig>
   </setting>
 
@@ -91,6 +117,8 @@
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
       <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
       <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+      <listEntry value="17">@Strings.DataFieldMoonPhase</listEntry>
+      <listEntry value="18">@Strings.DataFieldSecondTime</listEntry>
     </settingConfig>
   </setting>
 
@@ -132,6 +160,8 @@
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
       <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
       <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+      <listEntry value="17">@Strings.DataFieldMoonPhase</listEntry>
+      <listEntry value="18">@Strings.DataFieldSecondTime</listEntry>
     </settingConfig>
   </setting>
   
@@ -150,6 +180,8 @@
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
       <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
       <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+      <listEntry value="17">@Strings.DataFieldMoonPhase</listEntry>
+      <listEntry value="18">@Strings.DataFieldSecondTime</listEntry>
     </settingConfig>
   </setting>
   
@@ -168,6 +200,8 @@
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
       <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
       <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+      <listEntry value="17">@Strings.DataFieldMoonPhase</listEntry>
+      <listEntry value="18">@Strings.DataFieldSecondTime</listEntry>
     </settingConfig>
   </setting>
   <setting propertyKey="@Properties.showOrbitIndicatorText" title="@Strings.SettingsOrbitIndicatorTextTitle">

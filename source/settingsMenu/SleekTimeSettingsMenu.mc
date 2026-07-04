@@ -12,6 +12,7 @@ class SleekTimeSettingsMenu extends WatchUi.Menu2 {
     Menu2.addItem(menuItem("layout", Settings.resource(Rez.Strings.SettingsLayoutTitle), getLayoutString(Settings.get("layout"))));
     Menu2.addItem(menuItem("layoutSettings", Settings.resource(Rez.Strings.SettingsLayoutSettingsTitle), null));
     Menu2.addItem(menuItem("theme", Settings.resource(Rez.Strings.SettingsThemeTitle), getThemeString(Settings.get("theme"))));
+    Menu2.addItem(menuItem("accentColor", Settings.resource(Rez.Strings.SettingsAccentColorTitle), getColorString(Settings.get("accentColor"))));
 
     Menu2.addItem(
       toggleItem(
@@ -56,6 +57,7 @@ class SleekTimeSettingsMenu extends WatchUi.Menu2 {
 
     Menu2.addItem(menuItem("caloriesGoal", Settings.resource(Rez.Strings.SettingsCaloriesGoalTitle), Settings.get("caloriesGoal").toString()));
     Menu2.addItem(menuItem("batteryThreshold", Settings.resource(Rez.Strings.SettingsBatteryThresholdTitle), Settings.get("batteryThreshold").toString()));
+    Menu2.addItem(menuItem("secondTimeOffset", Settings.resource(Rez.Strings.SettingsSecondTimeOffsetTitle), Settings.get("secondTimeOffset").toString()));
   }
 }
 
@@ -82,6 +84,14 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
     }
     if (item.getId().equals("theme")) {
       pushThemeOptionsMenu(item);
+      return;
+    }
+    if (item.getId().equals("accentColor")) {
+      pushAccentColorMenu(item);
+      return;
+    }
+    if (item.getId().equals("secondTimeOffset")) {
+      pushSecondTimePicker(item);
       return;
     }
     if (item.getId().equals("sleepSettings")) {
@@ -136,7 +146,21 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
   }
 
   hidden function pushThemeOptionsMenu(parent) as Void {
-    var holder = new FixedValuesFactory([getThemeString(0), getThemeString(1), getThemeString(2), getThemeString(3), getThemeString(4)], parent.getId(), {});
+    var holder = new FixedValuesFactory([getThemeString(0), getThemeString(1), getThemeString(2), getThemeString(3), getThemeString(4), getThemeString(5)], parent.getId(), {});
+    WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
+  }
+
+  hidden function pushAccentColorMenu(parent) as Void {
+    var names = [];
+    for (var i = 0; i < 12; i++) {
+      names.add(getColorString(i));
+    }
+    var holder = new FixedValuesFactory(names, parent.getId(), {});
+    WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
+  }
+
+  hidden function pushSecondTimePicker(parent) as Void {
+    var holder = new NumberFactory(-12, 14, 1, parent.getId(), {});
     WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
   }
 
@@ -161,7 +185,7 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
   }
 
   hidden function pushClockDatafieldOptionsMenu(parent) {
-    var holder = new DataFieldFactory([0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 16], parent.getId(), {});
+    var holder = new DataFieldFactory([0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18], parent.getId(), {});
     WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
   }
 
@@ -229,9 +253,31 @@ var _theme as Null or Array<ResourceId> = null;
 
 function getThemeString(themeId) {
   if (_theme == null) {
-    _theme = [Rez.Strings.ThemeDaisy, Rez.Strings.ThemeRose, Rez.Strings.ThemeLavender, Rez.Strings.ThemeMarigold, Rez.Strings.ThemeBluebell];
+    _theme = [Rez.Strings.ThemeDaisy, Rez.Strings.ThemeRose, Rez.Strings.ThemeLavender, Rez.Strings.ThemeMarigold, Rez.Strings.ThemeBluebell, Rez.Strings.ThemeCustom];
   }
   return Settings.resource(_theme[themeId]);
+}
+
+var _colors as Null or Array<ResourceId> = null;
+
+function getColorString(colorId) {
+  if (_colors == null) {
+    _colors = [
+      Rez.Strings.ColorWhite,
+      Rez.Strings.ColorPink,
+      Rez.Strings.ColorCoral,
+      Rez.Strings.ColorPeach,
+      Rez.Strings.ColorGold,
+      Rez.Strings.ColorMint,
+      Rez.Strings.ColorTeal,
+      Rez.Strings.ColorSky,
+      Rez.Strings.ColorBlue,
+      Rez.Strings.ColorLavender,
+      Rez.Strings.ColorPurple,
+      Rez.Strings.ColorMagenta,
+    ];
+  }
+  return Settings.resource(_colors[colorId]);
 }
 
 var _layout as Null or Array<ResourceId> = null;

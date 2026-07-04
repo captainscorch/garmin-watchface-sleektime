@@ -114,6 +114,8 @@ module Settings {
       Rez.Strings.DataFieldActiveCalories,
       Rez.Strings.DataFieldTemperature,
       Rez.Strings.DataFieldSunriseSunset,
+      Rez.Strings.DataFieldMoonPhase,
+      Rez.Strings.DataFieldSecondTime,
     ];
   }
 
@@ -146,6 +148,8 @@ module Settings {
     setAsBoolean("showSeconds", false);
     setAsBoolean("batteryInDays", false);
     setAsBoolean("sleepDimColors", false);
+    setAsNumber("accentColor", 1);
+    setAsNumber("secondTimeOffset", 0);
 
     setAsNumber("sleepDataField1", 5);
     setAsNumber("sleepDataField2", 6);

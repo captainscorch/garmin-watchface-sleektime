@@ -12,6 +12,8 @@
   <property id="showSeconds" type="boolean">false</property>
   <property id="batteryInDays" type="boolean">false</property>
   <property id="sleepDimColors" type="boolean">false</property>
+  <property id="accentColor" type="number">1</property>
+  <property id="secondTimeOffset" type="number">0</property>
 
   <property id="sleepDataField1" type="number">5</property>
   <property id="sleepDataField2" type="number">6</property>

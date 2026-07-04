@@ -13,6 +13,22 @@
   <string id="ThemeLavender">Lavender</string>
   <string id="ThemeMarigold">Marigold</string>
   <string id="ThemeBluebell">Bluebell</string>
+  <string id="ThemeCustom">Custom</string>
+
+  <string id="SettingsAccentColorTitle">Accent Color (Custom theme)</string>
+  <string id="ColorWhite">White</string>
+  <string id="ColorPink">Pink</string>
+  <string id="ColorCoral">Coral</string>
+  <string id="ColorPeach">Peach</string>
+  <string id="ColorGold">Gold</string>
+  <string id="ColorMint">Mint</string>
+  <string id="ColorTeal">Teal</string>
+  <string id="ColorSky">Sky</string>
+  <string id="ColorBlue">Blue</string>
+  <string id="ColorLavender">Lavender</string>
+  <string id="ColorPurple">Purple</string>
+  <string id="ColorMagenta">Magenta</string>
+  <string id="SettingsSecondTimeOffsetTitle">Second time zone offset (hours from UTC)</string>
 
   <string id="GenericSettingsGroupTitle">General Settings</string>
   <string id="SettingsChooseLayoutTitle">Choose Layout</string>
@@ -102,6 +118,8 @@
   <string id="DataFieldActiveCalories">Active Calories</string>
   <string id="DataFieldTemperature">Temperature</string>
   <string id="DataFieldSunriseSunset">Sunrise / Sunset</string>
+  <string id="DataFieldMoonPhase">Moon Phase</string>
+  <string id="DataFieldSecondTime">Second Time Zone</string>
 
   <string id="DateMonth1">Jan</string>
   <string id="DateMonth2">Feb</string>
