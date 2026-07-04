@@ -36,8 +36,10 @@ All themes use a black background with one soft accent color shared by the time,
 - Weather Temperature
 - Sunrise / Sunset
 
+Developed by [unlimited.studio](https://unlimited.studio) & captainscor.ch.
+
 ### Attributions
 
-- Uses a slightly modified Version of the [DINish Font](https://github.com/playbeing/dinish) for the date and time elements.
+- Uses the [DINish Font](https://github.com/playbeing/dinish) for the date and time elements.
 - Various icons used from and inspired by [The Noun Project](https://thenounproject.com/).
 - This project has been forked from [Protomolecule](https://github.com/blotspot/garmin-watchface-protomolecule).
