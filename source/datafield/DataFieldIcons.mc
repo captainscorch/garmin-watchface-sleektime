@@ -94,6 +94,18 @@ module DataFieldIcons {
     textIcon(dc, x, y, "z");
   }
 
+  function drawTemperature(dc, x, y, size, penSize, value) as Void {
+    textIcon(dc, x, y, "D");
+  }
+
+  function drawSunrise(dc, x, y, size, penSize, value) as Void {
+    textIcon(dc, x, y, "U");
+  }
+
+  function drawSunset(dc, x, y, size, penSize, value) as Void {
+    textIcon(dc, x, y, "d");
+  }
+
   function textIcon(dc, x, y, string) as Void {
     var font = Settings.resource(Rez.Fonts.IconsFont);
     dc.drawText(x, y, font, string, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);

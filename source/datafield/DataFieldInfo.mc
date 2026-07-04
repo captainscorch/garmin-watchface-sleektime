@@ -9,6 +9,7 @@ import Toybox.System;
 import Toybox.Time;
 import Toybox.Time.Gregorian;
 import Toybox.UserProfile;
+import Toybox.Weather;
 
 module Format {
   const INT_ZERO = "%02d";
@@ -56,6 +57,8 @@ module FieldType {
   const SECONDS = 12;
   const STRESS_LEVEL = 13;
   const ACTIVE_CALORIES = 14;
+  const TEMPERATURE = 15;
+  const SUNRISE_SUNSET = 16;
 }
 
 module DataFieldInfo {
@@ -100,13 +103,13 @@ module DataFieldInfo {
     } else if (fieldId == FieldId.LOWER_2) {
       return getInfoForType(Settings.get("lower2"));
     } else if (fieldId == FieldId.SLEEP_HR) {
-      return getHeartRateInfo();
+      return getInfoForType(Settings.get("sleepDataField1"));
     } else if (fieldId == FieldId.SLEEP_NOTIFY) {
-      return getNotificationInfo();
+      return getInfoForType(Settings.get("sleepDataField2"));
     } else if (fieldId == FieldId.SLEEP_ALARMS) {
-      return getAlarmsInfo();
+      return getInfoForType(Settings.get("sleepDataField3"));
     } else if (fieldId == FieldId.SLEEP_BATTERY) {
-      return getBatteryInfo();
+      return getInfoForType(Settings.get("sleepOuterDataField"));
     } else if (fieldId == FieldId.DATE_AND_TIME) {
       return getSecondsInfo();
     } else {
@@ -141,6 +144,10 @@ module DataFieldInfo {
       return getBodyBatteryInfo();
     } else if (fieldType == FieldType.STRESS_LEVEL) {
       return getStressLevel();
+    } else if (fieldType == FieldType.TEMPERATURE) {
+      return getTemperatureInfo();
+    } else if (fieldType == FieldType.SUNRISE_SUNSET) {
+      return getSunEventInfo();
     } else {
       return null;
     }
@@ -214,7 +221,89 @@ module DataFieldInfo {
       iconFunc = new Lang.Method(DataFieldIcons, :drawBatteryLoading);
     }
 
+    if (Settings.get("batteryInDays") && stats has :batteryInDays && stats.batteryInDays != null) {
+      return new DataFieldProperties(FieldType.BATTERY, iconFunc, stats.batteryInDays.format(Format.INT), current / 100, true);
+    }
+
     return new DataFieldProperties(FieldType.BATTERY, iconFunc, current.format(Format.FLOAT), current / 100, true);
+  }
+
+  function getTemperatureInfo() as DataFieldProperties {
+    var temperature = null;
+    if (Toybox has :Weather && Weather has :getCurrentConditions) {
+      var conditions = Weather.getCurrentConditions();
+      if (conditions != null) {
+        temperature = conditions.temperature;
+      }
+    }
+
+    var text = "0";
+    if (temperature != null) {
+      if (System.getDeviceSettings().temperatureUnits == System.UNIT_STATUTE) {
+        temperature = temperature * 9 / 5 + 32;
+      }
+      text = temperature.format(Format.INT);
+    }
+
+    return new DataFieldProperties(FieldType.TEMPERATURE, new Lang.Method(DataFieldIcons, :drawTemperature), text, 0, false);
+  }
+
+  //! Best-effort current location without the Positioning permission: the
+  //! weather observation position is most reliable but is null until weather
+  //! syncs with a fix, so fall back to the current activity location.
+  function getCurrentPosition() {
+    if (Toybox has :Weather && Weather has :getCurrentConditions) {
+      var conditions = Weather.getCurrentConditions();
+      if (conditions != null && conditions.observationLocationPosition != null) {
+        return conditions.observationLocationPosition;
+      }
+    }
+
+    var activityInfo = Activity.getActivityInfo();
+    if (activityInfo != null && activityInfo.currentLocation != null) {
+      return activityInfo.currentLocation;
+    }
+
+    return null;
+  }
+
+  function getSunEventInfo() as DataFieldProperties {
+    var icon = new Lang.Method(DataFieldIcons, :drawSunrise);
+    var event = null;
+
+    if (Toybox has :Weather && Weather has :getSunrise) {
+      var position = getCurrentPosition();
+      if (position != null) {
+        var now = Time.now();
+        var sunrise = Weather.getSunrise(position, now);
+        var sunset = Weather.getSunset(position, now);
+
+        if (sunrise != null && now.lessThan(sunrise)) {
+          event = sunrise;
+        } else if (sunset != null && now.lessThan(sunset)) {
+          event = sunset;
+          icon = new Lang.Method(DataFieldIcons, :drawSunset);
+        } else {
+          // after sunset: show tomorrow's sunrise
+          event = Weather.getSunrise(position, now.add(new Time.Duration(Gregorian.SECONDS_PER_DAY)));
+        }
+      }
+    }
+
+    var text = "0";
+    if (event != null) {
+      var eventTime = Gregorian.info(event, Time.FORMAT_SHORT);
+      var hour = eventTime.hour;
+      if (!System.getDeviceSettings().is24Hour) {
+        hour = hour % 12;
+        if (hour == 0) {
+          hour = 12;
+        }
+      }
+      text = Lang.format("$1$:$2$", [hour.format(Format.INT), eventTime.min.format(Format.INT_ZERO)]);
+    }
+
+    return new DataFieldProperties(FieldType.SUNRISE_SUNSET, icon, text, 0, false);
   }
 
   function getStepInfo() as DataFieldProperties {
