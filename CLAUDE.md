@@ -12,20 +12,34 @@ watches only (see `manifest.xml` for the ~90 supported products) and ships two m
 ## Build & Run
 
 There is no build script or test suite; this is a standard Connect IQ project built with the
-Garmin Connect IQ SDK (`monkey.jungle` only points at `manifest.xml`).
+Garmin Connect IQ SDK. `monkeyc`/`monkeydo`/`connectiq` are the SDK binaries — on this machine
+they live under `~/Library/Application Support/Garmin/ConnectIQ/Sdks/<sdk-version>/bin/` (not on
+PATH), and the developer key is `~/.ssh/developer_key`. `monkey.jungle` points at `manifest.xml`;
+`beta.jungle` points at `beta-manifest.xml`.
 
 ```sh
-# Build (requires Connect IQ SDK on PATH and a developer key)
-monkeyc -f monkey.jungle -d fenix7 -o bin/sleektime.prg -y <developer_key>
+# Build and run in the simulator (start `connectiq` first)
+monkeyc -f monkey.jungle -d venu2s -o bin/sleektime.prg -y ~/.ssh/developer_key
+monkeydo bin/sleektime.prg venu2s
 
-# Run in the simulator (start `connectiq` first)
-monkeydo bin/sleektime.prg fenix7
+# Sideload over USB: build for the device, copy to the watch (mounts as /Volumes/GARMIN).
+# Sideloaded apps have NO phone-settings screen — every option must be reachable on-watch.
+monkeyc -f monkey.jungle -d fenix6xpro -o bin/sleektime-fenix6xpro.prg -y ~/.ssh/developer_key
+cp bin/sleektime-fenix6xpro.prg "/Volumes/GARMIN/GARMIN/APPS/"
+
+# Private beta store package (.iq), built from the beta manifest (its own app id):
+monkeyc -e -f beta.jungle -o bin/SleekTime-beta.iq -y ~/.ssh/developer_key
 ```
 
 The VS Code "Monkey C" extension can be used instead (Build / Run in Simulator commands).
 
-- `manifest.xml` is the production manifest; `beta-manifest.xml` is a separate app id (single
-  device) used for beta-store uploads.
+- Common device IDs: `venu2s` (360×360 AMOLED), `fenix6xpro` (280×280 MIP), `fenix7`. The Fenix
+  6X is only ever `fenix6xpro` — there is no non-Pro 6X id. Full product list in `manifest.xml`.
+- `manifest.xml` is the production manifest (~90 devices); `beta-manifest.xml` is a separate app
+  id used for private beta-store uploads (check "Beta App" at upload to keep it unlisted).
+- After changing a property's default in `properties.xml`, the simulator keeps the OLD value in
+  `$TMPDIR/com.garmin.connectiq/GARMIN/APPS/SETTINGS/SLEEKTIME.SET` — delete that file to test
+  fresh defaults.
 - `Log.debug(...)` output only exists in debug builds: the `Log` module has `(:debug)` and
   `(:release)` variants, so release builds compile logging to a no-op.
 

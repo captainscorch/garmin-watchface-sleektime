@@ -43,3 +43,26 @@ Developed by [unlimited.studio](https://unlimited.studio) & captainscor.ch.
 - Uses the [DINish Font](https://github.com/playbeing/dinish) for the date and time elements.
 - Various icons used from and inspired by [The Noun Project](https://thenounproject.com/).
 - This project has been forked from [Protomolecule](https://github.com/blotspot/garmin-watchface-protomolecule).
+
+### Building & Installing
+
+Requires the [Connect IQ SDK](https://developer.garmin.com/connect-iq/sdk/) (`monkeyc`/`monkeydo`
+on your `PATH`) and a developer key. Device IDs: Venu 2s = `venu2s`, Fenix 6X Pro = `fenix6xpro`
+(all supported devices are listed in `manifest.xml`).
+
+```sh
+# Build and run in the simulator
+monkeyc -f monkey.jungle -d venu2s -o bin/sleektime.prg -y ~/.ssh/developer_key
+monkeydo bin/sleektime.prg venu2s
+
+# Sideload over USB: build for the device, then copy to the watch (mounts as GARMIN).
+# Sideloaded apps have NO phone-settings screen — configure from the on-watch menu.
+monkeyc -f monkey.jungle -d venu2s     -o bin/sleektime-venu2s.prg     -y ~/.ssh/developer_key
+monkeyc -f monkey.jungle -d fenix6xpro -o bin/sleektime-fenix6xpro.prg -y ~/.ssh/developer_key
+cp bin/sleektime-venu2s.prg     "/Volumes/GARMIN/GARMIN/APPS/"
+cp bin/sleektime-fenix6xpro.prg "/Volumes/GARMIN/GARMIN/APPS/"
+
+# Private beta: build a store package (.iq) from the beta manifest (separate app id).
+# Upload at the developer portal and check "Beta App" to keep it unlisted.
+monkeyc -e -f beta.jungle -o bin/SleekTime-beta.iq -y ~/.ssh/developer_key
+```
