@@ -1,28 +1,40 @@
 ![](https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/0688f00f-64ce-4661-9ef3-464f02d56399/screenshots/bdcd8b9e-0350-495f-9980-f41778322826?raw=true)
 
-A Watchface for Garmin Smartwatches. The date and time and all numbers are based on the "broken" letters used in the television show The Expanse.
+A clean, minimal watchface for Garmin smartwatches with soft pastel color themes.
 
-Can now be found in the Garmin store: https://apps.garmin.com/en-US/apps/d9f524cc-b8e3-41df-b0d3-967b1743d165
+Can be found in the Garmin store: https://apps.garmin.com/en-US/apps/d9f524cc-b8e3-41df-b0d3-967b1743d165
 
-### Different Designs
+### Layouts
 
-- **Orbit** - Three Indicators that show the progress towards a certain goal
-- **Circles** - Five Indicators, one big ring that doesn't shows an icon and 4 small ones (two over and two under the date and time element) with a respective icon in the middle.
-- **(optional) Sleep Time** - Design that will active during the configured hours of sleep. Only showes the minimum datafields (currently not configurable).
+- **Orbit** - Three arc indicators around the edge that show progress towards your goals
+- **Circles** - Five ring indicators: one large outer ring and four small ones around the date and time
+- **(optional) Sleep Time** - A calm, minimal layout that activates during your configured sleep hours
 
-### Supported DataFields
+### Color Themes
+
+All themes use a black background with one soft accent color shared by the time, rings, and indicators:
+
+- **Daisy** - white
+- **Rose** - pastel pink
+- **Lavender** - pastel purple
+- **Marigold** - pastel gold
+- **Bluebell** - pastel blue
+
+### Supported Data Fields
 
 - Heartrate
-- Battery
+- Battery (percent, or estimated days remaining)
 - Calories
 - Steps per Day
 - Active Minutes per Week
 - Floors Up / Down per Day
-- Notifcations
+- Notifications
 - Alarms
 - Bluetooth connection status
 - Body Battery
 - Stress Level
+- Weather Temperature
+- Sunrise / Sunset
 
 ### Attributions
 
