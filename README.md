@@ -4,6 +4,8 @@ A clean, minimal watchface for Garmin smartwatches with soft pastel color themes
 
 Can be found in the Garmin store: https://apps.garmin.com/en-US/apps/d9f524cc-b8e3-41df-b0d3-967b1743d165
 
+See [FEATURES.md](FEATURES.md) for the full feature list.
+
 ### Layouts
 
 - **Orbit** - Three arc indicators around the edge that show progress towards your goals
