@@ -8,10 +8,11 @@
   <string id="LayoutCirclesItem">Circles</string>
   <string id="LayoutCirclesItemSub">8 Data Fields</string>
 
-  <string id="ThemeVenus">Venus</string>
-  <string id="ThemeExpanse">Expanse</string>
-  <string id="ThemeEarth">Earth</string>
-  <string id="ThemeMars">Mars</string>
+  <string id="ThemeDaisy">Daisy</string>
+  <string id="ThemeRose">Rose</string>
+  <string id="ThemeLavender">Lavender</string>
+  <string id="ThemeMarigold">Marigold</string>
+  <string id="ThemeBluebell">Bluebell</string>
 
   <string id="GenericSettingsGroupTitle">General Settings</string>
   <string id="SettingsChooseLayoutTitle">Choose Layout</string>
@@ -23,7 +24,18 @@
   <string id="SettingsShowRemainingIndicator">Show Remaining Part of Indicator</string>
   <string id="SettingsCaloriesGoalTitle">Daily Calories Goal</string>
   <string id="SettingsBatteryThresholdTitle">Battery empty icon at %</string>
+  <string id="SettingsBatteryInDaysTitle">Show battery in days instead of percent</string>
+  <string id="ToggleMenuBatteryInDaysLabel">Battery Value</string>
+  <string id="ToggleMenuBatteryInDaysEnabled">Days</string>
+  <string id="ToggleMenuBatteryInDaysDisabled">Percent</string>
   <string id="SettingsSleepTimeLayoutActiveTitle">Fixed Layout during Sleep Time</string>
+  <string id="SettingsSleepDimColorsTitle">Dim colors during Sleep Time</string>
+  <string id="SettingsSleepDF1Title">[Sleep] Left Field</string>
+  <string id="SettingsSleepDF2Title">[Sleep] Middle Field</string>
+  <string id="SettingsSleepDF3Title">[Sleep] Right Field</string>
+  <string id="SettingsSleepOuterTitle">[Sleep] Outer Indicator</string>
+  <string id="SettingsSleepGroupTitle">Sleep Layout Settings</string>
+  <string id="ToggleMenuSleepDimLabel">Night Dimming</string>
   <string id="SettingsActiveHeartrateTitle">Update Heartrate every 10 seconds</string>
   <string id="SettingsUseSystemFontTitle">Use system font for date line (includes all special characters)</string>
   
@@ -87,6 +99,9 @@
   <string id="DataFieldSeconds">Seconds</string>
   <string id="DataFieldBodyBattery">Body Battery</string>
   <string id="DataFieldStressLevel">Stress Level</string>
+  <string id="DataFieldActiveCalories">Active Calories</string>
+  <string id="DataFieldTemperature">Temperature</string>
+  <string id="DataFieldSunriseSunset">Sunrise / Sunset</string>
 
   <string id="DateMonth1">Jan</string>
   <string id="DateMonth2">Feb</string>

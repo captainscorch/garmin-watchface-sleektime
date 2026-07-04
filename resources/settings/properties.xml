@@ -10,9 +10,16 @@
   <property id="showMeridiemText" type="boolean">false</property>
   <property id="useSystemFontForDate" type="boolean">false</property>
   <property id="showSeconds" type="boolean">false</property>
-  
+  <property id="batteryInDays" type="boolean">false</property>
+  <property id="sleepDimColors" type="boolean">false</property>
+
+  <property id="sleepDataField1" type="number">5</property>
+  <property id="sleepDataField2" type="number">6</property>
+  <property id="sleepDataField3" type="number">10</property>
+  <property id="sleepOuterDataField" type="number">2</property>
+
   <property id="noProgressDataField1" type="number">5</property>
-  <property id="noProgressDataField2" type="number">6</property>
+  <property id="noProgressDataField2" type="number">0</property>
   <property id="noProgressDataField3" type="number">9</property>
   
   <property id="outerDataField" type="number">2</property>

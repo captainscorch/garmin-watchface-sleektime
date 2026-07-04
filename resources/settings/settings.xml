@@ -8,10 +8,11 @@
 
   <setting propertyKey="@Properties.theme" title="@Strings.SettingsThemeTitle">
     <settingConfig type="list">
-      <listEntry value="0">@Strings.ThemeVenus</listEntry>
-      <listEntry value="1">@Strings.ThemeExpanse</listEntry>
-      <listEntry value="2">@Strings.ThemeEarth</listEntry>
-      <listEntry value="3">@Strings.ThemeMars</listEntry>
+      <listEntry value="0">@Strings.ThemeDaisy</listEntry>
+      <listEntry value="1">@Strings.ThemeRose</listEntry>
+      <listEntry value="2">@Strings.ThemeLavender</listEntry>
+      <listEntry value="3">@Strings.ThemeMarigold</listEntry>
+      <listEntry value="4">@Strings.ThemeBluebell</listEntry>
     </settingConfig>
   </setting>
 
@@ -35,12 +36,85 @@
     <settingConfig type="boolean" required="true"/>
   </setting>
 
+  <setting propertyKey="@Properties.sleepDimColors" title="@Strings.SettingsSleepDimColorsTitle">
+    <settingConfig type="boolean" required="true"/>
+  </setting>
+
+  <setting propertyKey="@Properties.sleepDataField1" title="@Strings.SettingsSleepDF1Title">
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.NoDataField</listEntry>
+      <listEntry value="2">@Strings.DataFieldBattery</listEntry>
+      <listEntry value="4">@Strings.DataFieldActiveMinutes</listEntry>
+      <listEntry value="5">@Strings.DataFieldHeartRate</listEntry>
+      <listEntry value="6">@Strings.DataFieldMessages</listEntry>
+      <listEntry value="7">@Strings.DataFieldFloorsUp</listEntry>
+      <listEntry value="8">@Strings.DataFieldFloorsDown</listEntry>
+      <listEntry value="9">@Strings.DataFieldBluetooth</listEntry>
+      <listEntry value="10">@Strings.DataFieldAlarms</listEntry>
+      <listEntry value="11">@Strings.DataFieldBodyBattery</listEntry>
+      <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
+      <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
+      <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+    </settingConfig>
+  </setting>
+
+  <setting propertyKey="@Properties.sleepDataField2" title="@Strings.SettingsSleepDF2Title">
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.NoDataField</listEntry>
+      <listEntry value="2">@Strings.DataFieldBattery</listEntry>
+      <listEntry value="4">@Strings.DataFieldActiveMinutes</listEntry>
+      <listEntry value="5">@Strings.DataFieldHeartRate</listEntry>
+      <listEntry value="6">@Strings.DataFieldMessages</listEntry>
+      <listEntry value="7">@Strings.DataFieldFloorsUp</listEntry>
+      <listEntry value="8">@Strings.DataFieldFloorsDown</listEntry>
+      <listEntry value="9">@Strings.DataFieldBluetooth</listEntry>
+      <listEntry value="10">@Strings.DataFieldAlarms</listEntry>
+      <listEntry value="11">@Strings.DataFieldBodyBattery</listEntry>
+      <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
+      <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
+      <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+    </settingConfig>
+  </setting>
+
+  <setting propertyKey="@Properties.sleepDataField3" title="@Strings.SettingsSleepDF3Title">
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.NoDataField</listEntry>
+      <listEntry value="2">@Strings.DataFieldBattery</listEntry>
+      <listEntry value="4">@Strings.DataFieldActiveMinutes</listEntry>
+      <listEntry value="5">@Strings.DataFieldHeartRate</listEntry>
+      <listEntry value="6">@Strings.DataFieldMessages</listEntry>
+      <listEntry value="7">@Strings.DataFieldFloorsUp</listEntry>
+      <listEntry value="8">@Strings.DataFieldFloorsDown</listEntry>
+      <listEntry value="9">@Strings.DataFieldBluetooth</listEntry>
+      <listEntry value="10">@Strings.DataFieldAlarms</listEntry>
+      <listEntry value="11">@Strings.DataFieldBodyBattery</listEntry>
+      <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
+      <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
+      <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
+    </settingConfig>
+  </setting>
+
+  <setting propertyKey="@Properties.sleepOuterDataField" title="@Strings.SettingsSleepOuterTitle">
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.NoDataField</listEntry>
+      <listEntry value="1">@Strings.DataFieldSteps</listEntry>
+      <listEntry value="2">@Strings.DataFieldBattery</listEntry>
+      <listEntry value="3">@Strings.DataFieldCalories</listEntry>
+      <listEntry value="11">@Strings.DataFieldBodyBattery</listEntry>
+      <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
+    </settingConfig>
+  </setting>
+
   <setting propertyKey="@Properties.activeHeartrate" title="@Strings.SettingsActiveHeartrateTitle">
     <settingConfig type="boolean" required="true"/>
   </setting>
 
   <setting propertyKey="@Properties.batteryThreshold" title="@Strings.SettingsBatteryThresholdTitle">
     <settingConfig type="numeric" min="1" max="100" required="true"/>
+  </setting>
+
+  <setting propertyKey="@Properties.batteryInDays" title="@Strings.SettingsBatteryInDaysTitle">
+    <settingConfig type="boolean" required="true"/>
   </setting>
 
   <setting propertyKey="@Properties.noProgressDataField1" title="@Strings.SettingsSecondary1Title">
@@ -56,6 +130,8 @@
       <listEntry value="10">@Strings.DataFieldAlarms</listEntry>
       <listEntry value="11">@Strings.DataFieldBodyBattery</listEntry>
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
+      <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
+      <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
     </settingConfig>
   </setting>
   
@@ -72,6 +148,8 @@
       <listEntry value="10">@Strings.DataFieldAlarms</listEntry>
       <listEntry value="11">@Strings.DataFieldBodyBattery</listEntry>
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
+      <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
+      <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
     </settingConfig>
   </setting>
   
@@ -88,6 +166,8 @@
       <listEntry value="10">@Strings.DataFieldAlarms</listEntry>
       <listEntry value="11">@Strings.DataFieldBodyBattery</listEntry>
       <listEntry value="13">@Strings.DataFieldStressLevel</listEntry>
+      <listEntry value="15">@Strings.DataFieldTemperature</listEntry>
+      <listEntry value="16">@Strings.DataFieldSunriseSunset</listEntry>
     </settingConfig>
   </setting>
   <setting propertyKey="@Properties.showOrbitIndicatorText" title="@Strings.SettingsOrbitIndicatorTextTitle">
