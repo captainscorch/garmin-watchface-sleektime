@@ -22,9 +22,10 @@ PATH), and the developer key is `~/.ssh/developer_key`. `monkey.jungle` points a
 monkeyc -f monkey.jungle -d venu2s -o bin/sleektime.prg -y ~/.ssh/developer_key
 monkeydo bin/sleektime.prg venu2s
 
-# Sideload over USB: build for the device, copy to the watch (mounts as /Volumes/GARMIN).
+# Sideload over USB: build for the device, then copy the .prg into the watch's GARMIN/Apps folder.
 # Sideloaded apps have NO phone-settings screen — every option must be reachable on-watch.
 monkeyc -f monkey.jungle -d fenix6xpro -o bin/sleektime-fenix6xpro.prg -y ~/.ssh/developer_key
+# If the watch mounts as a drive (watch USB Mode = "Garmin"/mass storage), just copy:
 cp bin/sleektime-fenix6xpro.prg "/Volumes/GARMIN/GARMIN/APPS/"
 
 # Private beta store package (.iq), built from the beta manifest (its own app id):
@@ -35,6 +36,15 @@ The VS Code "Monkey C" extension can be used instead (Build / Run in Simulator c
 
 - Common device IDs: `venu2s` (360×360 AMOLED), `fenix6xpro` (280×280 MIP), `fenix7`. The Fenix
   6X is only ever `fenix6xpro` — there is no non-Pro 6X id. Full product list in `manifest.xml`.
+- Sideloading on this Apple Silicon Mac: the Fenix 6X does **not** mount as `/Volumes/GARMIN`.
+  In the watch's `Settings > System > USB Mode`, "Garmin"/mass-storage enumerates (`0x091e:0x0003`)
+  but macOS never binds a disk to it (known Apple-Silicon xHCI + Garmin bulk-only-storage bug), and
+  "MTP" mode isn't a mountable filesystem either. So the `cp` line above never finds the drive here.
+  Working method: set USB Mode = **MTP**, then use **OpenMTP** (`brew install --cask openmtp`) to drag
+  the built `.prg` into the watch's `GARMIN/Apps` folder. The `libmtp` CLI (`mtp-sendfile`) fails on
+  Garmin with `get_suggested_storage_id(): could not get storage id from parent id` — use OpenMTP's
+  GUI, not the CLI. After the copy, unplug the watch, then long-press MENU > Watch Face and pick
+  SleekTime (sideloaded faces don't auto-activate).
 - `manifest.xml` is the production manifest (~90 devices); `beta-manifest.xml` is a separate app
   id used for private beta-store uploads (check "Beta App" at upload to keep it unlisted).
 - After changing a property's default in `properties.xml`, the simulator keeps the OLD value in

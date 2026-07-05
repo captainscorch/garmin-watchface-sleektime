@@ -64,12 +64,16 @@ on your `PATH`) and a developer key. Device IDs: Venu 2s = `venu2s`, Fenix 6X Pr
 monkeyc -f monkey.jungle -d venu2s -o bin/sleektime.prg -y ~/.ssh/developer_key
 monkeydo bin/sleektime.prg venu2s
 
-# Sideload over USB: build for the device, then copy to the watch (mounts as GARMIN).
+# Sideload over USB: build for the device, then copy the .prg into the watch's GARMIN/Apps folder.
 # Sideloaded apps have NO phone-settings screen — configure from the on-watch menu.
 monkeyc -f monkey.jungle -d venu2s     -o bin/sleektime-venu2s.prg     -y ~/.ssh/developer_key
 monkeyc -f monkey.jungle -d fenix6xpro -o bin/sleektime-fenix6xpro.prg -y ~/.ssh/developer_key
+# If the watch mounts as a drive (USB Mode = "Garmin"), copy directly:
 cp bin/sleektime-venu2s.prg     "/Volumes/GARMIN/GARMIN/APPS/"
 cp bin/sleektime-fenix6xpro.prg "/Volumes/GARMIN/GARMIN/APPS/"
+# If it doesn't mount (e.g. Garmin mass storage won't attach on Apple Silicon Macs), set the
+# watch's USB Mode to MTP and drag the .prg into GARMIN/Apps with OpenMTP (brew install --cask openmtp).
+# Then unplug and pick the face via long-press MENU > Watch Face (sideloaded faces don't auto-activate).
 
 # Private beta: build a store package (.iq) from the beta manifest (separate app id).
 # Upload at the developer portal and check "Beta App" to keep it unlisted.
