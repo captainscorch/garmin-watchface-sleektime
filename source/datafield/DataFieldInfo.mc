@@ -243,7 +243,7 @@ module DataFieldInfo {
       }
     }
 
-    var text = "0";
+    var text = "--";
     if (temperature != null) {
       if (System.getDeviceSettings().temperatureUnits == System.UNIT_STATUTE) {
         temperature = temperature * 9 / 5 + 32;
@@ -296,7 +296,7 @@ module DataFieldInfo {
       }
     }
 
-    var text = "0";
+    var text = "--:--";
     if (event != null) {
       var eventTime = Gregorian.info(event, Time.FORMAT_SHORT);
       var hour = eventTime.hour;

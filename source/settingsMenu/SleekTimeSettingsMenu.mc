@@ -170,17 +170,17 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
   }
 
   hidden function pushOrbitDatafieldOptionsMenu(parent) as Void {
-    var holder = new DataFieldFactory([0, 1, 2, 3, 4, 7, 8, 11, 13], parent.getId(), {});
+    var holder = new DataFieldFactory([0, 1, 2, 3, 14, 4, 7, 8, 11, 13], parent.getId(), {});
     WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
   }
 
   hidden function pushInnerCirclesDatafieldOptionsMenu(parent) {
-    var holder = new DataFieldFactory([0, 1, 2, 3, 4, 7, 8, 9, 11, 13], parent.getId(), {});
+    var holder = new DataFieldFactory([0, 1, 2, 3, 14, 4, 7, 8, 9, 11, 13], parent.getId(), {});
     WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
   }
 
   hidden function pushOuterCirclesDatafieldOptionsMenu(parent) {
-    var holder = new DataFieldFactory([0, 1, 2, 3, 11], parent.getId(), {});
+    var holder = new DataFieldFactory([0, 1, 2, 3, 14, 11], parent.getId(), {});
     WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
   }
 
