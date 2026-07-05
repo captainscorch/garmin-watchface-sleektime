@@ -1,8 +1,10 @@
-![](https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/0688f00f-64ce-4661-9ef3-464f02d56399/screenshots/bdcd8b9e-0350-495f-9980-f41778322826?raw=true)
+<p align="center">
+	<a href="https://unlimited.studio" target="_blank"><img src="https://unlimited.dev/us_white.png" width="280" style="display: inline-block; vertical-align: middle;"></a>
+</p>
+
+# SleekTime
 
 A clean, minimal watchface for Garmin smartwatches with soft pastel color themes.
-
-Can be found in the Garmin store: https://apps.garmin.com/en-US/apps/d9f524cc-b8e3-41df-b0d3-967b1743d165
 
 See [FEATURES.md](FEATURES.md) for the full feature list.
 
