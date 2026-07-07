@@ -76,6 +76,6 @@ cp bin/sleektime-fenix6xpro.prg "/Volumes/GARMIN/GARMIN/APPS/"
 # Then unplug and pick the face via long-press MENU > Watch Face (sideloaded faces don't auto-activate).
 
 # Private beta: build a store package (.iq) from the beta manifest (separate app id).
-# Upload at the developer portal and check "Beta App" to keep it unlisted.
+# Upload at the developer portal (https://apps.garmin.com/developer/upload) and check "Beta App" to keep it unlisted.
 monkeyc -e -f beta.jungle -o bin/SleekTime-beta.iq -y ~/.ssh/developer_key
 ```
