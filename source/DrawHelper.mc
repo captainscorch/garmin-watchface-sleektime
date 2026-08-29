@@ -62,11 +62,20 @@ module Color {
     Graphics.COLOR_BLACK, // BACKGROUND
     0xa3c7ff, // FOREGROUND
     Graphics.COLOR_DK_GRAY, // INACTIVE
+    /* BEIGE - warm sand */
+    0xcbc0a8, // TEXT_ACTIVE
+    Graphics.COLOR_LT_GRAY, // TEXT_INACTIVE
+    0xcbc0a8, // PRIMARY
+    0xcbc0a8, // SECONDARY_1
+    0xcbc0a8, // SECONDARY_2
+    Graphics.COLOR_BLACK, // BACKGROUND
+    0xcbc0a8, // FOREGROUND
+    Graphics.COLOR_DK_GRAY, // INACTIVE
   ];
 
   // Number of fixed themes in _COLORS; theme ids >= this select the Custom
   // theme, whose accent comes from ACCENT_PALETTE[accentColor].
-  const FIXED_THEMES as Number = 5;
+  const FIXED_THEMES as Number = 6;
 
   // Accent choices for the Custom theme (index stored in the accentColor
   // setting). Order must match the accentColor list in the settings/strings.

@@ -13,6 +13,7 @@
   <string id="ThemeLavender">Lavender</string>
   <string id="ThemeMarigold">Marigold</string>
   <string id="ThemeBluebell">Bluebell</string>
+  <string id="ThemeBeige">Beige</string>
   <string id="ThemeCustom">Custom</string>
 
   <string id="SettingsAccentColorTitle">Accent Color (Custom theme)</string>

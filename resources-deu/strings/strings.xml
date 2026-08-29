@@ -13,6 +13,7 @@
   <string id="ThemeLavender">Lavendel</string>
   <string id="ThemeMarigold">Ringelblume</string>
   <string id="ThemeBluebell">Glockenblume</string>
+  <string id="ThemeBeige">Beige</string>
   <string id="ThemeCustom">Eigene</string>
 
   <string id="SettingsAccentColorTitle">Akzentfarbe (Eigenes Design)</string>

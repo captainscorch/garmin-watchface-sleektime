@@ -146,7 +146,7 @@ class SleekTimeSettingsDelegate extends WatchUi.Menu2InputDelegate {
   }
 
   hidden function pushThemeOptionsMenu(parent) as Void {
-    var holder = new FixedValuesFactory([getThemeString(0), getThemeString(1), getThemeString(2), getThemeString(3), getThemeString(4), getThemeString(5)], parent.getId(), {});
+    var holder = new FixedValuesFactory([getThemeString(0), getThemeString(1), getThemeString(2), getThemeString(3), getThemeString(4), getThemeString(5), getThemeString(6)], parent.getId(), {});
     WatchUi.pushView(new OptionsMenu(holder, { :title => parent.getLabel() }), new OptionsMenuDelegate(holder, parent), WatchUi.SLIDE_LEFT);
   }
 
@@ -253,7 +253,7 @@ var _theme as Null or Array<ResourceId> = null;
 
 function getThemeString(themeId) {
   if (_theme == null) {
-    _theme = [Rez.Strings.ThemeDaisy, Rez.Strings.ThemeRose, Rez.Strings.ThemeLavender, Rez.Strings.ThemeMarigold, Rez.Strings.ThemeBluebell, Rez.Strings.ThemeCustom];
+    _theme = [Rez.Strings.ThemeDaisy, Rez.Strings.ThemeRose, Rez.Strings.ThemeLavender, Rez.Strings.ThemeMarigold, Rez.Strings.ThemeBluebell, Rez.Strings.ThemeBeige, Rez.Strings.ThemeCustom];
   }
   return Settings.resource(_theme[themeId]);
 }

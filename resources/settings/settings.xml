@@ -13,7 +13,8 @@
       <listEntry value="2">@Strings.ThemeLavender</listEntry>
       <listEntry value="3">@Strings.ThemeMarigold</listEntry>
       <listEntry value="4">@Strings.ThemeBluebell</listEntry>
-      <listEntry value="5">@Strings.ThemeCustom</listEntry>
+      <listEntry value="5">@Strings.ThemeBeige</listEntry>
+      <listEntry value="6">@Strings.ThemeCustom</listEntry>
     </settingConfig>
   </setting>
 
